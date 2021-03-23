@@ -19,10 +19,10 @@ public class KthElement {
         NodeSLL p1 = head;
         NodeSLL p2 = head;
         for(int i=1;i<k;i++)p1=p1.next;
-        while(p1.next!=null){
+        /*while(p1.next!=null){
             p1=p1.next;
             p2=p2.next;
-        }
-        System.out.println("p2 data:"+p2.data);
+        }*/
+        System.out.println("p1 data:"+p1.data);
     }
 }

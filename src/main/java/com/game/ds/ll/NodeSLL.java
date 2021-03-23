@@ -30,6 +30,14 @@ public class NodeSLL {
         }
         System.out.println();
     }
+    public void display(NodeSLL head) {
+        NodeSLL ptr = head;
+        while (ptr != null) {
+            System.out.print("->"+ptr.data);
+            ptr = ptr.next;
+        }
+        System.out.println();
+    }
     public static NodeSLL getMiddleElement(){
         NodeSLL p1 = head.next;
         NodeSLL p2 = head;
