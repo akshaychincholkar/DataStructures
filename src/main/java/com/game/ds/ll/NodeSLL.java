@@ -17,7 +17,21 @@ public class NodeSLL {
         n1.next = n2;
         n2.next = n3;
         n3.next = n4;
-//        n4.next = n5;
+//        n4.next = n2;
+        return  head;
+
+    }
+    public static NodeSLL getSLLWithLoop(){
+        NodeSLL n1 = new NodeSLL(2);
+        NodeSLL n2 = new NodeSLL(3);
+        NodeSLL n3 = new NodeSLL(4);
+        NodeSLL n4 = new NodeSLL(5);
+//        NodeSLL n5 = new NodeSLL(6);
+        head.next = n1;
+        n1.next = n2;
+        n2.next = n3;
+        n3.next = n4;
+        n4.next = n2;
         return  head;
 
     }
