@@ -21,6 +21,59 @@ public class NodeSLL {
         return  head;
 
     }
+    public static NodeSLL get11NodeSLL(){
+        NodeSLL n1 = new NodeSLL(2);
+        NodeSLL n2 = new NodeSLL(3);
+        NodeSLL n3 = new NodeSLL(4);
+        NodeSLL n4 = new NodeSLL(5);
+        NodeSLL n5 = new NodeSLL(6);
+        NodeSLL n6 = new NodeSLL(7);
+        NodeSLL n7 = new NodeSLL(8);
+        NodeSLL n8 = new NodeSLL(9);
+        NodeSLL n9 = new NodeSLL(10);
+        NodeSLL n10 = new NodeSLL(11);
+//        NodeSLL n5 = new NodeSLL(6);
+        head.next = n1;
+        n1.next = n2;
+        n2.next = n3;
+        n3.next = n4;
+        n4.next = n5;
+        n5.next = n6;
+        n6.next = n7;
+        n7.next = n8;
+        n8.next = n9;
+        n9.next = n10;
+//        n4.next = n2;
+        return  head;
+
+    }
+    public static NodeSLL getPalidromeSLL(){
+        NodeSLL n1 = new NodeSLL(2);
+        NodeSLL n2 = new NodeSLL(3);
+        NodeSLL n3 = new NodeSLL(4);
+        NodeSLL n4 = new NodeSLL(5);
+        NodeSLL n5 = new NodeSLL(6);
+        NodeSLL n6 = new NodeSLL(5);
+        NodeSLL n7 = new NodeSLL(4);
+        NodeSLL n8 = new NodeSLL(3);
+        NodeSLL n9 = new NodeSLL(2);
+        NodeSLL n10 = new NodeSLL(1);
+//        NodeSLL n5 = new NodeSLL(6);
+        head.next = n1;
+        n1.next = n2;
+        n2.next = n3;
+        n3.next = n4;
+        n4.next = n5;
+        n5.next = n6;
+        n6.next = n7;
+        n7.next = n8;
+        n8.next = n9;
+        n9.next = n10;
+//        n4.next = n2;
+        return  head;
+
+
+    }
     public static NodeSLL getSLLWithLoop(){
         NodeSLL n1 = new NodeSLL(2);
         NodeSLL n2 = new NodeSLL(3);

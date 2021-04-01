@@ -9,7 +9,7 @@ public class ReverseSLL {
         head.display(head);
     }
 
-    private static NodeSLL reverseSLL(NodeSLL head) {
+    public static NodeSLL reverseSLL(NodeSLL head) {
         if(head == null) return head;
         if(head.next == null) return head;
         NodeSLL ptr1 = null,ptr2 = head,ptr3=head.next;
