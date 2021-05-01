@@ -30,6 +30,13 @@ public class NodeSLL {
         NodeSLL n8 = new NodeSLL(9);
         NodeSLL n9 = new NodeSLL(10);
         NodeSLL n10 = new NodeSLL(11);
+        NodeSLL n11 = new NodeSLL(12);
+        NodeSLL n12 = new NodeSLL(13);
+        NodeSLL n13= new NodeSLL(14);
+        NodeSLL n14 = new NodeSLL(15);
+        NodeSLL n15 = new NodeSLL(16);
+        NodeSLL n16 = new NodeSLL(17);
+        NodeSLL n17 = new NodeSLL(18);
         head.next = n1;
         n1.next = n2;
         n2.next = n3;
@@ -40,6 +47,13 @@ public class NodeSLL {
         n7.next = n8;
         n8.next = n9;
         n9.next = n10;
+        n10.next = n11;
+        n11.next = n12;
+        n12.next = n13;
+        n13.next = n14;
+        n14.next = n15;
+        n15.next = n16;
+        n16.next = n17;
         return  head;
 
     }
