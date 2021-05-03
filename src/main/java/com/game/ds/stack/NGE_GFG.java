@@ -1,6 +1,6 @@
 package com.game.ds.stack;
 
-public class NGE_NextGreaterElement {
+public class NGE_GFG {
     public static void main(String[] args) {
         int[] a = {11,10,8,9,12,15,5,21,18};
 //        int[] a = {10,11};
