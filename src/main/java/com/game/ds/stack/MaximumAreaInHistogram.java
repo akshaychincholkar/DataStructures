@@ -27,7 +27,7 @@ class ArrayEntity{
         this.index = index;
     }
 }
-public class LargestRectangleInHistogram {
+public class MaximumAreaInHistogram {
     public static void main(String[] args) {
         int[] a =  {6, 2, 5, 4, 5, 1, 6};
         for(int element:a)
@@ -37,9 +37,10 @@ public class LargestRectangleInHistogram {
         System.out.println("Maximum area of rectangle is "+area);
     }
 
-    private static int getLargestRectagleArea(int[] a) {
+    public static int getLargestRectagleArea(int[] a) {
         int maxArea = 0;
         Stack<ArrayEntity> stack1 = new Stack<>();
+        Stack<ArrayEntity> stack2 = new Stack<>();
         int[] NSR = new int[a.length];
         int[] NSL = new int[a.length];
         int[] width = new int[a.length];
@@ -57,14 +58,14 @@ public class LargestRectangleInHistogram {
         }
         //NSL index
         for(int i=0;i<a.length;i++){
-            if(stack1.isEmpty())NSL[i] = -1;
-            else if(stack1.peek().getValue()<a[i])NSL[i] = stack1.peek().getIndex();
-            else if(stack1.peek().getValue()>=a[i]){
-                while(!stack1.isEmpty() && stack1.peek().getValue()>=a[i])stack1.pop();
-                if(stack1.isEmpty())NSL[i] = a.length;
-                else NSL[i] = stack1.peek().getIndex();
+            if(stack2.isEmpty())NSL[i] = -1;
+            else if(stack2.peek().getValue()<a[i])NSL[i] = stack2.peek().getIndex();
+            else if(stack2.peek().getValue()>=a[i]){
+                while(!stack2.isEmpty() && stack2.peek().getValue()>=a[i])stack2.pop();
+                if(stack2.isEmpty())NSL[i] = -1;
+                else NSL[i] = stack2.peek().getIndex();
             }
-            stack1.push(new ArrayEntity(a[i],i));
+            stack2.push(new ArrayEntity(a[i],i));
         }
         //width
         for(int i=0;i<a.length;i++){
