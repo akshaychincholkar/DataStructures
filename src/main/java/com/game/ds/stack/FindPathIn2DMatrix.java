@@ -54,11 +54,16 @@ public class FindPathIn2DMatrix {
 
     }*/
     public static void main(String[] args) {
-        int[][] a={
+        /*int[][] a={
             {0,1,0,1,1,1,1},
-            {0,0,1,0,0,1,1},
+            {0,0,1,0,0,0,1},
             {1,0,0,0,1,0,1},
-            {0,1,1,0,0,0,0}};
+            {0,1,1,0,0,0,0}};*/
+        int[][] a={
+                {0,0,0,0,0,0,0},
+                {1,1,1,1,1,0,1},
+                {1,0,0,0,1,0,0},
+                {0,1,1,0,0,0,0}};
             boolean pathExists = getPathForArray(a);
         System.out.println("Path exists: "+(pathExists?"Yes":"No"));
     }
@@ -77,7 +82,12 @@ public class FindPathIn2DMatrix {
         stack.push(new IndexManager(x,y));
         for(int i = 0 ;i< a.length; i++){
             for(int j=0; j<a[0].length; j++){
-                IndexManager current = stack.peek();
+                IndexManager current = null;
+                if(!stack.isEmpty())
+                    current = stack.peek();
+                if(current == null){
+                    return false;
+                }
                 int currentX = x , currentY = y;
                 boolean flag=false;
                     if(current.right && (!(currentY+1 >= a[0].length) && a[currentX][currentY+1] == 0)){
@@ -103,9 +113,13 @@ public class FindPathIn2DMatrix {
                     }
                     if(x==a.length-1 && y ==a[0].length-1)return true;
                     if(!flag){
+
                         stack.pop();
-                        x=stack.peek().getI();
-                        y=stack.peek().getJ();
+                        if(!stack.isEmpty())  {
+
+                            x=stack.peek().getI();
+                            y=stack.peek().getJ();
+                        }
                     }
             }
         }
