@@ -26,6 +26,12 @@ class ArrayEntity{
     public void setIndex(int index) {
         this.index = index;
     }
+
+    @Override
+    public String toString() {
+        return   "i=" + value +
+                ", j=" + index ;
+    }
 }
 public class MaximumAreaInHistogram {
     public static void main(String[] args) {
