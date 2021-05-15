@@ -1,7 +1,10 @@
 package com.game.ds.tree;
 
+import com.game.ds.stack.InorderTraversalUsingStack;
+
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class BinarySearchTree {
     private BinarySearchTree left;
@@ -29,7 +32,7 @@ public class BinarySearchTree {
         ((LinkedList<BinarySearchTree>) queue).add(parent);
         while(!queue.isEmpty()){
             BinarySearchTree temp = queue.poll();
-            System.out.println(temp+"\t");
+            System.out.print(temp+"\t");
             if(temp.left!=null){
                 ((LinkedList<BinarySearchTree>) queue).add(temp.left);
             }
@@ -50,7 +53,7 @@ public class BinarySearchTree {
         if (root == null)
             return;
         if (level == 1)
-            System.out.println(root.getValue());
+            System.out.print(root.getValue()+"\t");
         else if (level > 1)
         {
             printGivenLevel(root.left, level-1);
@@ -89,5 +92,32 @@ public class BinarySearchTree {
     @Override
     public String toString() {
         return value+"";
+    }
+
+    public static void inorder(BinarySearchTree root){
+        if(root == null) return;
+        inorder(root.left);
+        System.out.print(root.getValue()+"\t");
+        inorder(root.right);
+    }
+    public static void preorder(BinarySearchTree root){
+        if(root == null) return;
+        System.out.print(root.getValue()+"\t");
+        preorder(root.left);
+        preorder(root.right);
+    }
+    public static  void postorder(BinarySearchTree root){
+        if(root == null) return;
+        postorder(root.left);
+        postorder(root.right);
+        System.out.print(root.getValue()+"\t");
+    }
+    public static void inorderUsingStack(Stack stack, BinarySearchTree root){
+        if(root == null)return;
+        stack.push(root);
+        inorderUsingStack(stack,root.left);
+        BinarySearchTree node = (BinarySearchTree) stack.pop();
+        System.out.print(node.getValue()+"\t");
+        inorderUsingStack(stack,node.right);
     }
 }
