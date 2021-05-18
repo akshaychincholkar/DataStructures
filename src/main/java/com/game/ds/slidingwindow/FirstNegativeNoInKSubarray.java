@@ -9,13 +9,13 @@ public class FirstNegativeNoInKSubarray {
     public static void main(String[] args) {
         int[] a = {12,-1,-7,8,-15,30,18,28};
         int window = 3;
-//        System.out.println("First -ve element list : "+getFirstNegativeArrayInSubarray(a,window));
-        printFirstNegativeInteger(a,a.length,window);
+        System.out.println("First -ve element list : "+getFirstNegativeArrayInSubarray(a,window));
+//        printFirstNegativeIntegerGFG(a,a.length,window);
     }
 
     // function to find the first negative
 // integer in every window of size k
-    static void printFirstNegativeInteger(int arr[],
+    static void printFirstNegativeIntegerGFG(int arr[],
                                           int n, int k)
     {
         // A Double Ended Queue, Di that will
@@ -73,38 +73,28 @@ public class FirstNegativeNoInKSubarray {
         List<Integer> returnList = new ArrayList<>();
         int start = 0, end = 0, neg = 0;
         Queue<Integer> queue = new LinkedList<>();
-
-        boolean isFound = false;
-        while(end<window){
-            if(a[end]<0){
-                if(!isFound ){
-                    isFound=true;
-                    neg = a[end];
-                }
-                ((LinkedList<Integer>) queue).add(a[end]);
+        int i;
+        for( i = 0; i<window;i++){
+            if(a[i]<0){
+                ((LinkedList<Integer>) queue).add(i);
             }
-            end++;
         }
-end--;
-//        returnList.add(neg);
 
-        while(end!=a.length){
-            if(!queue.isEmpty() && queue.peek()==a[start]){
-                neg = ((LinkedList<Integer>) queue).pop();
-                returnList.add(neg);
+        for(;i<a.length;i++){
+            if(!queue.isEmpty()){
+                returnList.add(a[queue.peek()]);
             }else{
-                if(!queue.isEmpty()){
-                    neg=queue.peek();
-                }
-                else neg = 0;
-                returnList.add(neg);
+                returnList.add(0);
             }
-            start++;
-            if(a[end]<0){
-                queue.add(a[end]);
+            if(!queue.isEmpty() && queue.peek()<(i-window+1)){
+                ((LinkedList<Integer>) queue).pop();
             }
-            end++;
+            if(a[i]<0){
+                ((LinkedList<Integer>) queue).add(i);
+            }
         }
+        if(queue.isEmpty())returnList.add(0);
+        else returnList.add(a[((LinkedList<Integer>) queue).pop()]);
         return  returnList;
     }
 }
