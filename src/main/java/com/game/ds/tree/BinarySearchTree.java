@@ -16,12 +16,19 @@ public class BinarySearchTree {
         this.right = right;
         this.value = value;
     }
-    public boolean insert(int value){
-        if(this.value>value){
-            if(right!=null)insert(value);
-            else new BinarySearchTree(value);
+    public void insert(BinarySearchTree root,BinarySearchTree node){
+        if(root.value < node.value){
+            if(root.right == null){
+                root.right = node;
+                return;
+            }insert(root.right,node);
+        }else{
+            if(root.left == null){
+                root.left = node;
+                return;
+            }
+            insert(root.left,node);
         }
-        return false;
     }
     public static int height(BinarySearchTree root){
         if(root == null)return  0;

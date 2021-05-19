@@ -13,11 +13,15 @@ public class BSTOperations{
 
         root.setLeft(node1);
         node1.setRight(node2);
-        node1.setLeft(node3);
+        node2.setLeft(node3);
 
+        System.out.println("****************Basic created tree*******************");
         BinarySearchTree.display(root);
+
+        System.out.println("****************Height of a tree*******************");
         System.out.println("Height :"+BinarySearchTree.height(root));
 
+        System.out.println("****************Tree traversal*******************");
         System.out.println("Preorder");
         BinarySearchTree.preorder(root);
         System.out.println();
@@ -26,6 +30,10 @@ public class BSTOperations{
         System.out.println();
         System.out.println("Postorder");
         BinarySearchTree.postorder(root);
+
+        System.out.println("****************BST tree creation with insertion*******************");
+        root.insert(root,new BinarySearchTree(20));
+        root.display(root);
 
     }
 }
