@@ -1,5 +1,10 @@
 package com.game.java8.lambda;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Queue;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -16,6 +21,10 @@ public class Main {
     }
     interface Salutation{
         void sayHi(String name);
+
     }
+
+
+
 
 }

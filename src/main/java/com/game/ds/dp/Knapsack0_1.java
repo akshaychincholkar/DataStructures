@@ -53,6 +53,16 @@ public class Knapsack0_1 {
                     t[i][j] = t[i-1][j];
                 }
             }
+/**
+ *         int[] wt  = { 1,3,4,7 };
+ *         int[] val = { 1,4,5,7 };
+ */
+        for(int i =0;i<=wt.length;i++){
+            for(int j=0;j<=w;j++){
+                System.out.print(t[i][j]+"\t");
+            }
+            System.out.println();
+        }
         return t[n][w];
     }
 }
