@@ -35,5 +35,8 @@ public class BSTOperations{
         root.insert(root,new BinarySearchTree(20));
         root.display(root);
 
+        System.out.println("****************BFS*******************");
+        root.BFS(root);
+
     }
 }

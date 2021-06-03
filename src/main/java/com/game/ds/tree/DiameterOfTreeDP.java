@@ -16,7 +16,7 @@ public class DiameterOfTreeDP {
         root.insert(root,new BinarySearchTree(29));
         root.insert(root,new BinarySearchTree(33));
 
-//        root.display(root);
+        root.display(root);
 
         int diameter = getDiameter(root);
         System.out.println("Diameter: "+diameter);

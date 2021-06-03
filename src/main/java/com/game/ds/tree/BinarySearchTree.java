@@ -127,4 +127,14 @@ public class BinarySearchTree {
         System.out.print(node.getValue()+"\t");
         inorderUsingStack(stack,node.right);
     }
+    public static void BFS(BinarySearchTree root){
+        Queue<BinarySearchTree> queue = new LinkedList<>();
+        ((LinkedList<BinarySearchTree>) queue).add(root);
+        while(!queue.isEmpty()){
+            BinarySearchTree temp = queue.remove();
+            System.out.println(temp.getValue());
+            if(temp.left!=null)((LinkedList<BinarySearchTree>) queue).add(temp.left);
+            if(temp.right!=null)((LinkedList<BinarySearchTree>) queue).add(temp.right);
+        }
+    }
 }
