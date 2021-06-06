@@ -2,7 +2,7 @@ package com.game.ds.recursion;
 
 public class TowerOfHanoi {
     public static void main(String[] args) {
-        int n = 3;
+        int n = 4;
 //        A --> C (transfer all plates from A to B rod)
         towerOfHanoi(n,'A','C','B');
     }
@@ -12,7 +12,7 @@ public class TowerOfHanoi {
                 System.out.println("Moving disk 1 from rod "+from+" to rod "+to);
                 return;
             }
-            towerOfHanoi(n-1,from,helper,to);
+        towerOfHanoi(n-1,from,helper,to);
         System.out.println("Moving disk "+n+" from rod "+from+" to rod "+to);
         towerOfHanoi(n-1,helper,to,from);
 

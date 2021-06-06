@@ -36,7 +36,7 @@ public class Knapsack0_1 {
             return t[w][n];
         }
         if(wt[n-1]<=w){
-            return t[n][w]=Math.max(val[n-1]+knapSackMemoization(w-wt[n-1],wt,val,n-1),knapSack(w,wt,val,n-1));
+            return t[n][w]=Math.max(val[n-1]+knapSackMemoization(w-wt[n-1],wt,val,n-1),knapSackMemoization(w,wt,val,n-1));
         }else{
             return t[n][w]=knapSackMemoization(w,wt,val,n-1);
         }

@@ -27,7 +27,9 @@ public class SubsetSum {
                 }else{
                     result[i][j] = result[i-1][j];
                 }
+                System.out.print(result[i][j]+"\t");
             }
+            System.out.println();
         }
         return result[a.length][sum];
     }

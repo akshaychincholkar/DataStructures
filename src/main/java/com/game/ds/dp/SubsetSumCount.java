@@ -8,7 +8,7 @@ public class SubsetSumCount {
         System.out.println("Number of subset count : "+count);
     }
 
-    private static int getSubsetSumCount(int[] a, int sum) {
+    public static int getSubsetSumCount(int[] a, int sum) {
         int[][] t = new int[a.length+1][sum+1];
         // If sum is 0, then answer is true
         for (int i = 0; i <= a.length; i++)
