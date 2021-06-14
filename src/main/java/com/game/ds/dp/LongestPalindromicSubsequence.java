@@ -8,6 +8,7 @@ public class LongestPalindromicSubsequence {
     }
 
     public static int getLongestPalindromicSubsequence(String s) {
-        return LCS.getLCSCountTopDown(s,new StringBuilder(s).reverse().toString(),s.length(),s.length());
+        return LCS.getLCSCountTopDown(s,new StringBuilder(s).reverse()
+                .toString(),s.length(),s.length());
     }
 }

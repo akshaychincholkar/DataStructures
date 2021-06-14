@@ -10,7 +10,9 @@ public class ShortestCommonSuperSequence {
         System.out.println("Shortest Common Super Sequence:"+count);
     }
 
-    private static int getShortestCommonSuperSequence(String s1, String s2, int n, int m) {
-        return m+n-LCS.getLCSCountTopDown(s1,s2,s1.length(),s2.length());
+    private static int getShortestCommonSuperSequence
+            (String s1, String s2, int n, int m) {
+        return m+n-LCS.getLCSCountTopDown(s1,s2,
+                s1.length(),s2.length());
     }
 }

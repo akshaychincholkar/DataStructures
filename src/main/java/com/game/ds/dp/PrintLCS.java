@@ -35,7 +35,7 @@ public class PrintLCS {
         int i=n,j=m;
         int element = t[n][m];
         while(i>0 && j>0){
-            if(t[i-1][j]==t[i][j-1] && element != t[i-1][j]){
+            if(t[i-1][j]==t[i][j-1] && element > t[i-1][j-1]){
                 ret_str = ret_str + s1.charAt(i-1);
                 element = t[i-1][j];
                 i--;

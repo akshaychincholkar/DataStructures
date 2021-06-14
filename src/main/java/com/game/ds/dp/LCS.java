@@ -39,7 +39,8 @@ public class LCS {
             return t[n][m] = 1+ getLCSCountRecursive(s1,s2,n-1,m-1);
         }
         else{
-            return t[n][m] = Math.max(getLCSCountRecursive(s1,s2,n,m-1), getLCSCountRecursive(s1,s2,n-1,m));
+            return t[n][m] = Math.max(getLCSCountRecursive(s1,s2,n,m-1),
+                    getLCSCountRecursive(s1,s2,n-1,m));
         }
 
     }
@@ -62,6 +63,25 @@ public class LCS {
             System.out.println();
         }*/
         return t[n][m];
+    }
+    public static void printMatrix(String s1,String s2,int[][] t){
+        for(int j=0;j<=s1.length();j++){
+            if(j!=0)
+                System.out.print("\t"+j+"-"+s1.charAt(j-1));
+            else
+                System.out.print("\t");
+        }
+        System.out.println();
+        for(int i =0;i<=s1.length();i++){
+            for(int j=0;j<=s2.length();j++){
+//                if(i==0) System.out.println(j+"\t");
+                if(j==0 && i!=0) System.out.print(i+"-"+s1.charAt(i-1)+"\t");
+//                else if(i==0) System.out.print("\t");
+                System.out.print(t[i][j]+"\t");
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 }
 /**

@@ -33,12 +33,6 @@ public class RodCuttingProblem {
         for (int i = 0; i <= length.length; i++)
             t[i][0] = 1;
 
-        // If sum is not 0 and set is empty,
-        // then answer is false
-        for (int i = 1; i <= rod; i++)
-            t[0][i] = 0;
-
-
         for(int i = 1;i<=targetLen;i++){
             for(int j=1;j<=rod;j++){
                 if(length[i-1]<=j){

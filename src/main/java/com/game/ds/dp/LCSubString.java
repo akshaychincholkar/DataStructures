@@ -9,7 +9,8 @@ public class LCSubString {
         System.out.println("LCSubstring count top down is "+count3);
     }
 
-    public static int getLCSubStringCountTopDown(String s1, String s2, int n, int m) {
+    public static int getLCSubStringCountTopDown(String s1, String s2,
+                                                 int n, int m) {
         int[][] t = new int[n+1][m+1];
 
         for(int i=1;i<=n;i++){
