@@ -1,10 +1,10 @@
-package com.game.ds;
+package com.game.java8.lambda;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Client {
+public class ProducerConsumerMain {
     public static void main(String[] args) throws InterruptedException {
         ProducerConsumer producerConsumer = new ProducerConsumer();
         Producer producer = new Producer(producerConsumer);
