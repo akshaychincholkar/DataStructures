@@ -89,7 +89,7 @@ public class GenerateProblemToStudy {
                 }
             }
             System.out.println("Loading the problem. Opening in default browser...");
-            System.out.println("NOTE: Solved problems are present inside the file: resources/alreadySolvedProblems.txt");
+            System.out.println("NOTE: Solved problems are present inside the file: src\\main\\resources\\alreadySolvedProblems.txt");
             fw.close();
         }
         catch(IOException e) {
