@@ -3,8 +3,8 @@ package com.game.ds.dp;
 public class LCS {
     static int[][] t;
     public static void main(String[] args) {
-        String s1 = "abcdgh";
-        String s2 = "aedfhr";
+        String s1 = "aabcdgh";
+        String s2 = "aaedfhr";
         int count = getLCSCountRecursive(s1,s2,s1.length(),s2.length());
         System.out.println("LCS count recursive is "+count);
 
@@ -56,18 +56,19 @@ public class LCS {
                 }
             }
         }
-       /* for(int i =0;i<=n;i++){
+        /*for(int i =0;i<=n;i++){
             for(int j=0;j<=m;j++){
                 System.out.print(t[i][j]+"_"+i+"_"+j+"\t");
             }
             System.out.println();
         }*/
+        printMatrix(s1,s2,t);
         return t[n][m];
     }
     public static void printMatrix(String s1,String s2,int[][] t){
         for(int j=0;j<=s1.length();j++){
             if(j!=0)
-                System.out.print("\t"+j+"-"+s1.charAt(j-1));
+                System.out.print("\t"+j+"-"+s2.charAt(j-1));
             else
                 System.out.print("\t");
         }
@@ -86,7 +87,7 @@ public class LCS {
 }
 /**
  *         String s1 = "abcdgh";
- *         String s2 = "aedfhr";
+ *         String s2 = "aedfhr"; adh
  * 0_0_0	0_0_1	0_0_2	0_0_3	0_0_4	0_0_5	0_0_6
  * 0_1_0	1_1_1	1_1_2	1_1_3	1_1_4	1_1_5	1_1_6
  * 0_2_0	1_2_1	1_2_2	1_2_3	1_2_4	1_2_5	1_2_6

@@ -35,7 +35,7 @@ public class GenerateProblemToStudy {
             Runtime rt = Runtime.getRuntime();
             rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
         }else{
-            System.out.println("INVALID URL GENERATED..");
+            System.out.println("INVALID URL GENERATED..\nPlease rerun the program...");
         }
     }
 
@@ -89,6 +89,7 @@ public class GenerateProblemToStudy {
                 }
             }
             System.out.println("Loading the problem. Opening in default browser...");
+            System.out.println("NOTE: Solved problems are present inside the file: resources/alreadySolvedProblems.txt");
             fw.close();
         }
         catch(IOException e) {
