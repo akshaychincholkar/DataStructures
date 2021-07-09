@@ -104,7 +104,7 @@ public class NodeSLL {
         }
         System.out.println();
     }
-    public void display(NodeSLL head) {
+    public static void display(NodeSLL head) {
         NodeSLL ptr = head;
         while (ptr != null) {
             System.out.print("->"+ptr.data);
