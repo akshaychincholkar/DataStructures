@@ -1,4 +1,4 @@
-package com.game.ds;
+package com.game.companies;
 
 import java.util.ArrayList;
 import java.util.List;
