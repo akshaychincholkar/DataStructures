@@ -1,9 +1,6 @@
 package com.game.ds.graph;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Graph {
     Map<Integer,List<Integer>> graph = new HashMap<>();
@@ -26,7 +23,6 @@ public class Graph {
                 list.add(value);
                 graph.put(adj_node,list);
             }
-
         }
     }
 
@@ -64,16 +60,94 @@ public class Graph {
         }
         return false;
     }
+    public void bfs(int start){
+        Queue<Integer> queue = new LinkedList<Integer>();
+        Set<Integer> visited = new HashSet<>();
+        if(graph.containsKey(start)){
+            System.out.print(start+"\t");
+            ((LinkedList<Integer>) queue).add(start);
+            visited.add(start);
+            while (!queue.isEmpty()){
+                int temp = queue.remove();
+                List<Integer> list = graph.get(temp);
+                for(Integer element:list){
+                    if(!visited.contains(element)){
+                        System.out.print(element+"\t");
+                        ((LinkedList<Integer>) queue).add(element);
+                        visited.add(element);
+                    }
+                }
+            }
+
+        }else{
+            System.out.println("Enter valid start vertex..");
+        }
+        System.out.println();
+    }
+    public void dfs(int start){
+        Stack<Integer> stack = new Stack<>();
+        Set<Integer> visited = new HashSet<>();
+        if(graph.containsKey(start)){
+//            System.out.print(start+"\t");
+            stack.push(start);
+            visited.add(start);
+            while(!stack.isEmpty()){
+                int temp =stack.pop();
+                System.out.print(temp+"\t");
+                for(Integer element:graph.get(temp)){
+                    if(!visited.contains(element)){
+                        visited.add(element);
+                        stack.push(element);
+                    }
+                }
+            }
+        }else{
+            System.out.println("Enter valid start vertex..");
+        }
+        System.out.println();
+    }
+    public boolean isCyclic(int start){
+        Stack<Integer> stack = new Stack<>();
+        Set<Integer> visited = new HashSet<>();
+
+        if(graph.containsKey(start)){
+            stack.push(start);
+            visited.add(start);
+            while(!stack.isEmpty()){
+                int temp = stack.pop();
+//                System.out.print(temp+"\t");
+                List<Integer> list = graph.get(temp);
+                for(Integer element:list){
+                    if(!visited.contains(element)){
+                        stack.push(element);
+                        visited.add(element);
+                    }else{
+                        if(stack.contains(element))return true;
+                    }
+                }
+            }
+        }
+        System.out.println();
+        return false;
+    }
     public static void main(String[] args) {
         Graph graph=new Graph();
         graph.addEdge(1,2,true);
-        graph.addEdge(1,3,true);
+        graph.addEdge(2,3,true);
         graph.addEdge(1,4,true);
+        graph.addEdge(3,5,true);
+        graph.addEdge(3,6,true);
+        graph.addEdge(6,7,true);
+        graph.addEdge(7,5,true);
 
         System.out.println(graph);
         System.out.println("Graph has "+graph.getVertexCount()+" number of vertices");
         System.out.println("Graph has "+graph.getEdgeCount()+" number of edges");
         System.out.println("Graph has edge between 1 & 3 ?:"+graph.hasEdge(1,3)+" number of edges");
         System.out.println("Graph has vertex  4? :"+graph.hasVertex(4));
+
+        graph.bfs(1);
+        graph.dfs(1);
+        System.out.println("Is cyclic graph:"+graph.isCyclic(1));
     }
 }
