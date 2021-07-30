@@ -18,7 +18,8 @@ public class RainTrappingProblem {
         int[] mxr = new int[a.length];
 
         mxl[0]=a[0];
-        for(int i=1;i<a.length;i++)mxl[i]=Math.max(mxl[i-1],a[i]);
+        for(int i=1;i<a.length;i++)
+            mxl[i]=Math.max(mxl[i-1],a[i]);
 
         mxr[a.length-1]=a[a.length-1];
         for(int i=a.length-2;i>=0;i--)mxr[i]=Math.max(mxr[i+1],a[i]);
