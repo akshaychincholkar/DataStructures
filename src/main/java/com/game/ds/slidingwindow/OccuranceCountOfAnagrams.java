@@ -42,4 +42,37 @@ public class OccuranceCountOfAnagrams {
         }
         return anagramCount;
     }
+    public static int getAnagrams(String a, String s){
+        Map<Character,Integer> frequency = new HashMap<>();
+        int anagrams = 0;
+        for(int i=0; i<s.length(); i++){
+            if(frequency.containsKey(s.charAt(i)))frequency.put(s.charAt(i),frequency.get(s.charAt(i))+1);
+            else frequency.put(s.charAt(i),1);
+        }
+        int count = frequency.size();
+        int i;
+        for( i = 0; i< s.length();i++){
+            char c = a.charAt(i);
+            if(frequency.containsKey(c)){
+                frequency.put(c,frequency.get(c)-1);
+            }
+            if(frequency.get(c) == 0) count--;
+        }
+        if(count == 0) anagrams++;
+        for(;i< a.length();i++){
+            int start = i - s.length();
+            char c1 = a.charAt(start);
+            char c2 = a.charAt(i);
+            if(frequency.containsKey(c1)){
+                frequency.put(c1,frequency.get(c1)+1);
+                if(frequency.get(c1) !=0)count++;
+            }
+            if(frequency.containsKey(c2)){
+                frequency.put(c2,frequency.get(c2)-1);
+                if(frequency.get(c2) ==0) count--;
+            }
+            if(count == 0) anagrams++;
+        }
+        return anagrams;
+    }
 }
