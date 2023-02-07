@@ -26,4 +26,20 @@ public class MaximumSumOfSubarray {
         }
         System.out.println(list);
         }
+    public static int getMaxSumFromWindow(int[] a,int k){
+        int start = 0, end =0 , sum = 0;
+        while(end < k){
+            sum += a[end];
+            end++;
+        }
+        int maxSum = sum;
+        while(end < a.length){
+            sum-=a[start++];
+            sum+=a[end++];
+            if(sum > maxSum){
+                maxSum = sum;
+            }
+        }
+        return maxSum;
+    }
 }

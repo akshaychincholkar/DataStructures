@@ -11,7 +11,7 @@ public class GenerateProblemToStudy {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         Random r = new Random();
-        int random = r.nextInt(40) + 1;
+        int random = r.nextInt(64) + 1;
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://github.com/FarheenB/Data-Structures-and-Algorithms/search?p="+random+"&q=author+Farheen+Bano"))

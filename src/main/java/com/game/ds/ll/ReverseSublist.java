@@ -1,7 +1,5 @@
 package com.game.ds.ll;
 
-import jdk.dynalink.NamedOperation;
-import org.w3c.dom.Node;
 
 public class ReverseSublist {
     public static void main(String[] args) {
