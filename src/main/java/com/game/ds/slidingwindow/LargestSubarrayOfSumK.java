@@ -20,24 +20,35 @@ public class LargestSubarrayOfSumK {
      * max =4
      * a = {4,2,1,1,1,3,2,5};
      */
-    private static int findLargestSubarray(int[] a, int k) {
-        int i =0 , j = 0 , sum = 0 ,max =0;
-        while(i<a.length && j<a.length) {
-            if(sum<k){
-                sum+=a[j];
-            }else if(sum==k){
-                if(j-i+1>max){
-                    max =j-i+1;
-                }
-            }else if(sum>k){
-                while(sum>k){
-                    sum-=a[i];
+    // function to find the length of longest
+    // subarray having sum k
+    static int lenOfLongSubarr(int A[], int N, int K)
+    {
+
+        int i = 0, j = 0, sum = 0;
+        int maxLen = Integer.MIN_VALUE;
+
+        while (j < N) {
+            sum += A[j];
+            if (sum < K) {
+                j++;
+            }
+            else if (sum == K) {
+                maxLen = Math.max(maxLen, j-i+1);
+                j++;
+            }
+            else if (sum > K) {
+                while (sum > K) {
+                    sum -= A[i];
                     i++;
                 }
+                if(sum == K){
+                    maxLen = Math.max(maxLen, j-i+1);
+                }
+                j++;
             }
-            j++;
         }
-        return max;
+        return maxLen;
     }
     static int lenOfLongSubarrGFG(int[] arr, int n, int k)
     {
