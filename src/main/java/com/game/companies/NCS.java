@@ -2,7 +2,6 @@ package com.game.companies;
 
 import java.io.*;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Collections;
@@ -18,7 +17,7 @@ class FilesGenerator implements Runnable{
 
 //            Thread.sleep(4000);
             //Files creation code
-        String baseLocation = "D:\\workspace\\intellij\\DataStructures\\src\\main\\java\\com\\game\\companies\\files\\";
+        String baseLocation = "C:\\Users\\Darshana Chincholkar\\Documents\\workspace\\DataStructures\\src\\main\\java\\com\\game\\companies\\files\\";
         String fileName = "myFile";
         String[] fileFormats = {".txt",".json",".csv"};
         String[] mailOrPhone = {"riyapatil@gmail.com","9421820040"};
@@ -39,17 +38,22 @@ class FilesGenerator implements Runnable{
         boolean folderCreation = false;
         for(int i=1,j=0 ; i<=50;i++){
             String completeFile;
+            int randomInt = random.nextInt(3);
             if(j<5){
                 completeFile = baseLocation +"\\folder_"+j+"\\";
                 //+ fileName +filesNumber[i-1]+ fileFormats[random.nextInt(3)]
                 File tempFile = new File(completeFile);
                 if(!tempFile.exists()){
                     if(tempFile.mkdir()) System.out.println("Folder created successfully");
+                    tempFile = new File(completeFile+File.separator+fileFormats[randomInt].substring(1));
+                    if(!tempFile.exists()) tempFile.mkdir();
                 }
-                completeFile = completeFile+ fileName +filesNumber[i-1]+ fileFormats[random.nextInt(3)];
+                completeFile = completeFile+ fileFormats[randomInt].substring(1)+File.separator+fileName +filesNumber[i-1]+ fileFormats[randomInt];
                 j++;
             }else {
-                completeFile = baseLocation + fileName + filesNumber[i - 1] + fileFormats[random.nextInt(3)];
+                File tempFile = new File(baseLocation +File.separator+fileFormats[randomInt].substring(1));
+                if(!tempFile.exists())tempFile.mkdir();
+                completeFile = baseLocation + fileFormats[randomInt].substring(1)+ File.separator+ fileName + filesNumber[i - 1] + fileFormats[randomInt];
             }
             System.out.println(completeFile);
             File file = new File(completeFile);
@@ -84,7 +88,7 @@ class FileScanner implements Runnable{
 
         System.out.println("Reading the file");
         try {
-            Files.walk(Paths.get("D:\\workspace\\intellij\\DataStructures\\src\\main\\java\\com\\game\\companies\\files\\"))
+            Files.walk(Paths.get("C:\\Users\\Darshana Chincholkar\\Documents\\workspace\\DataStructures\\src\\main\\java\\com\\game\\companies\\files\\"))
                     .filter(Files::isRegularFile)
                     .forEach(s -> {
                         boolean isMoved = false;
@@ -141,7 +145,7 @@ class FileScanner implements Runnable{
         System.out.println("Total time taken for execution "+Thread.currentThread().getName()+": "+totalTime);
     }
 }
-public class NFS {
+public class NCS {
     public static void main(String[] args) throws IOException, InterruptedException {
         //Threads execution
         FilesGenerator filesGeneratorRunnable = new FilesGenerator();
