@@ -2,7 +2,7 @@ package com.game.ds.recursion;
 
 public class NumberOfSubsets {
     public static void main(String[] args) {
-        String input = "ab";
+        String input = "abc";
         String output = "";
         printNumberOfSubset(output,input);
     }

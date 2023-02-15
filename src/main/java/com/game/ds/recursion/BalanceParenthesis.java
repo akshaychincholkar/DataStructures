@@ -17,13 +17,13 @@ public class BalanceParenthesis {
             list.add(op);
             return;
         }
-        if(open!=0){
-            op = op+"(";
-            getParenthesisPermutations(open-1,close,op,list);
+         if(open!=0){
+            String op1 = op+"(";
+            getParenthesisPermutations(open-1,close,op1,list);
         }
         if(close>open){
-            op = op +")";
-            getParenthesisPermutations(open,close-1,op,list);
+            String op2 = op +")";
+            getParenthesisPermutations(open,close-1,op2,list);
         }
     }
 }

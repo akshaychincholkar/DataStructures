@@ -2,7 +2,7 @@ package com.game.ds.recursion;
 
 public class KthSymbolInGrammar {
     public static void main(String[] args) {
-        int symbol =getKthSymbolInGrammar(2,0);
+        int symbol =getKthSymbolInGrammar(4,5);
         System.out.println("Kth symbol is :"+symbol);
     }
 
@@ -12,7 +12,7 @@ public class KthSymbolInGrammar {
         if(k<=middle) {
          return    getKthSymbolInGrammar(n-1,k);
         }     else{
-            return (~getKthSymbolInGrammar(n-1,k-middle));
+            return (Math.abs(~getKthSymbolInGrammar(n-1,k-middle)));
         }
     }
 }
