@@ -40,13 +40,13 @@ public class MinimumSubsetSumDifference {
             System.out.println();
         }
         List<Integer> temp = new ArrayList<Integer>();
-        for (int i = 0; i < sum ; i++) {
-            if (result[a.length][i] && i <=sum/2) temp.add(i);
+        for (int i = 1; i <=sum ; i++) {
+            if (result[a.length][i] ) temp.add(i);
         }
         //get last row
         int min =Integer.MAX_VALUE;
         for (int element : temp) {
-            min = Math.min(min, sum - 2 * element);
+            min = Math.min(min, range - 2 * element);
         }
         return min;
     }
