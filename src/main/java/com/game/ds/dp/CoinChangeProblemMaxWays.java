@@ -5,12 +5,12 @@ public class CoinChangeProblemMaxWays {
     public static void main(String[] args) {
         int[] a = {1,2,3};
         int sum = 5;
-        int count = getCoinCombinations(a,sum,a.length);
+        int count = getMaxCoinCombinations(a,sum,a.length);
         System.out.println("count :"+count);
 
     }
 
-    private static int getCoinCombinations(int[] a, int sum, int length) {
+    private static int getMaxCoinCombinations(int[] a, int sum, int length) {
         int[][] t = new int[length+1][sum+1];
         for (int i = 0; i <= a.length; i++)
             t[i][0] = 1;
