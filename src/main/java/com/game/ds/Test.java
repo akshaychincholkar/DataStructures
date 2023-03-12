@@ -3,6 +3,14 @@ package com.game.ds;
 import java.util.*;
 
 public class Test {
+        public static void main(String[] args) {
+            String x ="abc";
+            String y = "abc";
+            x.concat(y);
+            System.out.println(x);
+        }
+    }
+/*public class Test {
     public static void main(String[] args){
         int[] wt = {1,3,4,5};
         int[] val = {1,4,5,7};
@@ -18,7 +26,7 @@ public class Test {
         }else {
             return knapsack_0_1(wt,val,w,n-1);
         }
-    }
+    }*/
 /*    public static void main(String[] args){
         String s = "aabacbebebe";
         int k = 3;
@@ -47,4 +55,4 @@ public class Test {
         }
         return length;
     }*/
-}
+//}
