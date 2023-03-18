@@ -34,7 +34,6 @@ public class SubsetSumCount {
             }
             System.out.println();
         }
-
         return t[a.length][sum];
     }
 }

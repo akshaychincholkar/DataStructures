@@ -11,7 +11,7 @@ public class RodCuttingProblem {
 
         int[] length = {1, 2, 3};
         int rod = 5;
-        System.out.println("Maximum profit: "+getCounts(rod,length,length.length));
+        System.out.println("Maximum profit: "+ getNoOfCuts(rod,length,length.length));
 
     }
 
@@ -28,7 +28,7 @@ public class RodCuttingProblem {
             }
             return t[targetLen][rod];
     }
-    public static int getCounts(int rod,int[] length,int targetLen) {
+    public static int getNoOfCuts(int rod, int[] length, int targetLen) {
         t = new int[targetLen+1][rod+1];
         for (int i = 0; i <= length.length; i++)
             t[i][0] = 1;

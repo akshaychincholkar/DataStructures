@@ -30,7 +30,7 @@ public class PrintShortestCommonSupersequence {
         }
         int i=n,j=m;
         while(i>0 ||j>0){
-            if(t[i-1][j]==t[i][j-1] ){
+            if((s1.charAt(i-1)+"").equals(s2.charAt(j-1)+"")){ // OR - if(t[i-1][j]==t[i][j-1] ){
                 ret_str = ret_str + s1.charAt(i-1);
                 i--;
                 j--;

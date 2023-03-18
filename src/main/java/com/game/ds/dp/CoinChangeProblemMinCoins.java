@@ -2,8 +2,8 @@ package com.game.ds.dp;
 
 public class CoinChangeProblemMinCoins {
     public static void main(String[] args) {
-        int[] a = {4,5};
-        int sum = 5;
+        int[] a = {1,2,3};
+        int sum = 2;
         int minCoins = getMinCoins(a,sum);
         System.out.println("Miimum coins required: "+minCoins);
     }
@@ -15,7 +15,7 @@ public class CoinChangeProblemMinCoins {
 
         // If sum is not 0 and set is empty,
         // then answer is false
-        for (int i = 1; i <= sum; i++)
+        for (int i = 0; i <= sum; i++)
             t[0][i] = Integer.MAX_VALUE-1;
 
 

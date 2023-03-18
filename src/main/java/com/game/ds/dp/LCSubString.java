@@ -21,13 +21,10 @@ public class LCSubString {
                 }else{
                     t[i][j] =0;
                 }
-                if(t[i][j]>max)max=t[i][j];
+                if(max<t[i][j]) max+=1;
+                System.out.print(t[i][j]+"\t");
             }
-        }
-         for(int i =0;i<=n;i++){
-            for(int j=0;j<=m;j++){
-                if(t[i][j]>max)max=t[i][j];
-            }
+            System.out.println();
         }
         return max;
     }
