@@ -5,31 +5,39 @@ import java.util.*;
 public class Test {
 
     public static void main(String[] args){
-        String s = "aabacbebebe";
-        int k = 3;
-        System.out.println("Longest Unique characters Substring is in "+s+" is "+getLongestUniqueCharactersSubstringLength(s,k));
+        String s1 = "abcdgh";
+        String s2 = "aedfhr";
+        printLCS(s1,s2,s1.length(),s2.length());
     }
-    public static int getLongestUniqueCharactersSubstringLength(String s, int k){
-        int i = 0, j = 0 , length = 0;;
-        Map<Character,Integer> map = new HashMap<>();
-        while(j<s.length()){
-            Character c = s.charAt(j);
-            if(map.containsKey(c)){
-                map.put(c,map.get(c) +1);
-            }else{
-                map.put(c,1);
-            }
-            int curLen = j- i +1;
-            if(length < curLen) length = curLen;
-            if(map.size() > k){
-                while(map.size() != k){
-                    int updated = map.get(c)-1;
-                    map.put(c,updated);
-                    if(updated == 0) map.remove(c);
-                    j++;
+    public static void printLCS(String s1, String s2, int n, int m) {
+        int[][] t = new int[n + 1][m + 1];
+
+        for (int i = 1; i <= n; i++)
+            for (int j = 1; j <= m; j++) {
+                if ((s1.charAt(i - 1) + "").equals(s2.charAt(j - 1) + "")) {
+                    t[i][j] = 1 + t[i - 1][j - 1];
+                } else {
+                    t[i][j] = Math.max(t[i][j - 1], t[i - 1][j]);
                 }
-            }else {j++;}
+            }
+
+        System.out.println("LCS:" + t[n][m]);
+        System.out.println("Printing: ");
+        StringBuffer sb = new StringBuffer();
+        int i = n, j = m;
+
+        while (j > 0 && i > 0) {
+            if((s1.charAt(i-1)+"").equals(s2.charAt(j-1)+"")){
+                sb.append(s1.charAt(i - 1));
+                i--;
+                j--;
+            } else {
+                if (t[i - 1][j] == t[i][j]) i--;
+                else {
+                    j--;
+                }
+            }
         }
-        return length;
+        System.out.println(sb.reverse());
     }
 }
