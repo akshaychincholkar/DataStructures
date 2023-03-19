@@ -14,16 +14,6 @@ public class NQueens {
             printBoard(board);
         }
     }
-
-    private static void printBoard(int[][] board) {
-        for(int[] array:board){
-            for(int element: array){
-                System.out.print("  "+element);
-            }
-            System.out.println();
-        }
-    }
-
     private static boolean solve(int[][] board, int col,int n) {
         if(col>= n) return true;
         for(int i = 0; i< n ; i++){
@@ -47,5 +37,13 @@ public class NQueens {
             if(board[i][j]==1) return false;
         }
         return true;
+    }
+    private static void printBoard(int[][] board) {
+        for(int[] array:board){
+            for(int element: array){
+                System.out.print("  "+element);
+            }
+            System.out.println();
+        }
     }
 }
