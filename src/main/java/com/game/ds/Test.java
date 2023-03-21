@@ -4,40 +4,41 @@ import java.util.*;
 
 public class Test {
 
-    public static void main(String[] args){
-        String s1 = "abcdgh";
-        String s2 = "aedfhr";
-        printLCS(s1,s2,s1.length(),s2.length());
-    }
-    public static void printLCS(String s1, String s2, int n, int m) {
-        int[][] t = new int[n + 1][m + 1];
-
-        for (int i = 1; i <= n; i++)
-            for (int j = 1; j <= m; j++) {
-                if ((s1.charAt(i - 1) + "").equals(s2.charAt(j - 1) + "")) {
-                    t[i][j] = 1 + t[i - 1][j - 1];
-                } else {
-                    t[i][j] = Math.max(t[i][j - 1], t[i - 1][j]);
-                }
-            }
-
-        System.out.println("LCS:" + t[n][m]);
-        System.out.println("Printing: ");
-        StringBuffer sb = new StringBuffer();
-        int i = n, j = m;
-
-        while (j > 0 && i > 0) {
-            if((s1.charAt(i-1)+"").equals(s2.charAt(j-1)+"")){
-                sb.append(s1.charAt(i - 1));
-                i--;
-                j--;
-            } else {
-                if (t[i - 1][j] == t[i][j]) i--;
-                else {
-                    j--;
-                }
-            }
+    static boolean isPalindrome(String string, int i, int j)
+    {
+        while(i < j)
+        {
+            if(string.charAt(i) != string.charAt(j))
+                return false;
+            i++;
+            j--;
         }
-        System.out.println(sb.reverse());
+        return true;
+    }
+
+    static int minPalPartion(String string, int i, int j)
+    {
+        if( i >= j || isPalindrome(string, i, j) )
+            return 0;
+        int ans = Integer.MAX_VALUE, count;
+        for(int k = i; k < j; k++)
+        {
+            count = minPalPartion(string, i, k) +
+                    minPalPartion(string, k + 1, j) + 1;
+
+            ans = Math.min(ans, count);
+        }
+        return ans;
+    }
+
+    // Driver code
+    public static void main(String args[])
+    {
+//        String str = "cbadef";
+//        System.out.println("Min cuts needed for "
+//                + "Palindrome Partitioning is " + minPalPartion(str, 0, str.length() - 1));
+        int a= 2, b = 3;
+        int c = a/b;
+        System.out.println(c);
     }
 }
