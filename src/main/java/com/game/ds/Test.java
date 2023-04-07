@@ -3,42 +3,59 @@ package com.game.ds;
 import java.util.*;
 
 public class Test {
+    // Driver code
+    public static void main(String args[]){
+        int size = 4;
+        if(!solveNQueen(size)) System.out.println("No formation found");
+    }
 
-    static boolean isPalindrome(String string, int i, int j)
-    {
-        while(i < j)
-        {
-            if(string.charAt(i) != string.charAt(j))
-                return false;
-            i++;
-            j--;
+    private static boolean solveNQueen(int N) {
+        int[][] board = new int[N][N];
+
+        if(solve(board,0,N)) {
+            printBoard(board,N);
+            return true;
+        }else{
+            return false;
+        }
+    }
+    private static boolean solve(int[][] board, int col, int N) {
+        if(col>=N) return true;
+        for(int i=0;i<N;i++){
+            if(isSafe(board,i,col,N)){
+                board[i][col] = 1;
+                if(solve(board,col+1,N)) return true;
+                board[i][col] = 0; // backtracking
+            }
+        }
+        return false;
+    }
+    private static void printBoard(int[][] board, int N) {
+        for(int i = 0;i < N; i++){
+            for(int j = 0; j<N ; j++){
+                System.out.print(board[i][j]+"  ");
+            }
+            System.out.println();
+        }
+    }
+
+
+
+    private static boolean isSafe(int[][] board, int row, int col, int N) {
+        // check for left row
+        for(int i=0;i<col;i++){
+            if(board[row][i] == 1) return false;
+        }
+        //check for upper diagonal
+        for(int i = row, j = col; i>=0 && j>=0;i--,j--){
+            if(board[i][j] == 1) return false;
+        }
+
+        //check for lower diagonal
+        for(int i = row,j=col;i<N && j>=0;i++,j--){
+            if(board[i][j] == 1)return false;
         }
         return true;
     }
 
-    static int minPalPartion(String string, int i, int j)
-    {
-        if( i >= j || isPalindrome(string, i, j) )
-            return 0;
-        int ans = Integer.MAX_VALUE, count;
-        for(int k = i; k < j; k++)
-        {
-            count = minPalPartion(string, i, k) +
-                    minPalPartion(string, k + 1, j) + 1;
-
-            ans = Math.min(ans, count);
-        }
-        return ans;
-    }
-
-    // Driver code
-    public static void main(String args[])
-    {
-//        String str = "cbadef";
-//        System.out.println("Min cuts needed for "
-//                + "Palindrome Partitioning is " + minPalPartion(str, 0, str.length() - 1));
-        int a= 2, b = 3;
-        int c = a/b;
-        System.out.println(c);
-    }
 }
