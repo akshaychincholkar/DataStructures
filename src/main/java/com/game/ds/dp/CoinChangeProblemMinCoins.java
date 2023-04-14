@@ -19,9 +19,9 @@ public class CoinChangeProblemMinCoins {
             t[0][i] = Integer.MAX_VALUE-1;
 
 
-        for (int i = 1; i <= sum; i++){
-            if(i%a[0]==0)t[1][i] = i/a[0];
-            else t[1][i] = t[0][i];
+        for (int j = 1; j <= sum; j++){
+            if(j%a[0]==0)t[1][j] = j/a[0];
+            else t[1][j] = t[0][j];
         }
 
 
