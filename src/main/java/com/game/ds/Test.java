@@ -1,61 +1,23 @@
 package com.game.ds;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Test {
     // Driver code
     public static void main(String args[]){
-        int size = 4;
-        if(!solveNQueen(size)) System.out.println("No formation found");
+        int[] a = {1,2,3,4,5};
+        rotateArray(a,2);
+        System.out.println(Arrays.stream(a).boxed().collect(Collectors.toList()));
     }
-
-    private static boolean solveNQueen(int N) {
-        int[][] board = new int[N][N];
-
-        if(solve(board,0,N)) {
-            printBoard(board,N);
-            return true;
-        }else{
-            return false;
-        }
-    }
-    private static boolean solve(int[][] board, int col, int N) {
-        if(col>=N) return true;
-        for(int i=0;i<N;i++){
-            if(isSafe(board,i,col,N)){
-                board[i][col] = 1;
-                if(solve(board,col+1,N)) return true;
-                board[i][col] = 0; // backtracking
+    public static void rotateArray(int[] a, int k){
+        if(k>= a.length)return;
+        for(int i = 0 ;i<k;i++){
+            int temp = a[0];
+            for(int j = 1; j<a.length;j++){
+                a[j-1] = a[j];
             }
-        }
-        return false;
-    }
-    private static void printBoard(int[][] board, int N) {
-        for(int i = 0;i < N; i++){
-            for(int j = 0; j<N ; j++){
-                System.out.print(board[i][j]+"  ");
-            }
-            System.out.println();
+            a[a.length-1] = temp;
         }
     }
-
-
-
-    private static boolean isSafe(int[][] board, int row, int col, int N) {
-        // check for left row
-        for(int i=0;i<col;i++){
-            if(board[row][i] == 1) return false;
-        }
-        //check for upper diagonal
-        for(int i = row, j = col; i>=0 && j>=0;i--,j--){
-            if(board[i][j] == 1) return false;
-        }
-
-        //check for lower diagonal
-        for(int i = row,j=col;i<N && j>=0;i++,j--){
-            if(board[i][j] == 1)return false;
-        }
-        return true;
-    }
-
 }

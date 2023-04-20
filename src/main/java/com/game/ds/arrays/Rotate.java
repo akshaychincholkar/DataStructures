@@ -2,7 +2,7 @@ package com.game.ds.arrays;
 
 public class Rotate {
     public static void main(String[] args){
-        int[] a = {1,2,3,4,5000000};
+        int[] a = {1,2,3,4,500};
         if(a.length > 100000) return;
         System.out.println("Before rotation");
         for (int n:a) {
@@ -10,7 +10,7 @@ public class Rotate {
             if(n>1000000)return;
         }
 
-        a = leftRotate(a,10);
+        a = leftRotate(a,3);
         if(a == null)return;
         System.out.println("After rotation ");
         for (int n:a) {
