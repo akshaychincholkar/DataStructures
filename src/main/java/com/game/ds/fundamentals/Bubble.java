@@ -1,4 +1,4 @@
-package com.game.ds.sorting;
+package com.game.ds.fundamentals;
 
 public class Bubble {
     static void sort(int[] a){

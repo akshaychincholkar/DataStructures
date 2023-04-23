@@ -5,39 +5,27 @@ import java.util.stream.Collectors;
 
 public class Test {
     public static void main(String[] args){
-        int[] a = {3,1,2,6,4,5,2,1,8}; // output: 3,6,6,6,5,5,8
-        int k = 3;
-        System.out.println("Max sum of subarray: "+getMaxSum(a,k));
+//        int[] a = {5,1,2,4,3};
+        int[] a = {1,2,3,4,5};
+        for(int n:a)System.out.print(n+" ");
+        sort(a);
+        System.out.println("After sort");
+        for(int n:a)System.out.print(n+" ");
     }
-    public  static List<Integer> getMaxSum(int[] a, int k){
-        List<Integer> list = new ArrayList<>();
-        Queue<Integer> queue = new LinkedList<>();
-        int i = 0;
-        //calculate for first window
-        int max = 0;
-        for(i = 0;i<k;i++){
-            if(!queue.isEmpty() && a[queue.peek()]<a[i]){
-                queue.removeAll(queue);
-                queue.add(i);
-            }else{
-                queue.add(i);
+    public static void sort(int[] a){
+        boolean flag = true;
+        for(int i = 0 ;i<a.length;i++){
+            for(int j = 0; j < a.length - i - 1;j++){
+                if(a[j]>a[j+1]){
+                    int temp = a[j];
+                    a[j] = a[j+1];
+                    a[j+1] = temp;
+                    flag = false;
+//                    System.out.println("Om");
+                }
+                if(flag) break;
             }
         }
-        if(!queue.isEmpty())list.add(a[queue.peek()]);
-        else list.add(0);
-        for(;i<a.length;i++){
-            int s = i - k;
-            if(!queue.isEmpty() && s==queue.peek()){
-                queue.remove();
-            }
-            if(!queue.isEmpty() && a[queue.peek()] < a[i]){
-                queue.removeAll(queue);
-                queue.add(i);
-            }
-            if(!queue.isEmpty()) list.add(a[queue.peek()]);
-            else  list.add(0);
-        }
-        return list;
     }
 
 }
