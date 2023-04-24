@@ -21,7 +21,8 @@ public class BinarySearchTree {
             if(root.right == null){
                 root.right = node;
                 return;
-            }insert(root.right,node);
+            }
+            insert(root.right,node);
         }else{
             if(root.left == null){
                 root.left = node;
