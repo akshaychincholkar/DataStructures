@@ -1,6 +1,6 @@
 package com.game.ds.arrays;
 
-import com.game.ds.sorting.QuickSort;
+import com.game.ds.fundamentals.QuickSort;
 
 import java.util.*;
 

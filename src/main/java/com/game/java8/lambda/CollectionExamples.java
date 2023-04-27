@@ -47,5 +47,12 @@ public class CollectionExamples {
         maxheap.add(2);
         maxheap.add(1);
         System.out.println("Max heap: top: "+maxheap.peek()+" maxheap: "+maxheap);
+        int i ;
+        for(i = 0;i<10;i++){
+            if(i==0){
+                break;
+            }
+        }
+        System.out.println(" Value of i after break: "+i);
     }
 }
