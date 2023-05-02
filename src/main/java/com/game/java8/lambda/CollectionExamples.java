@@ -54,5 +54,80 @@ public class CollectionExamples {
             }
         }
         System.out.println(" Value of i after break: "+i);
+
+
+
+        List<Subject> subjects = new ArrayList<>();
+        subjects.add(new Subject(1,"Maths",100));
+        subjects.add(new Subject(2,"English",81));
+        subjects.add(new Subject(3,"Science",95));
+
+        List<Student> students = new ArrayList<>();
+        students.add(new Student(1,21,"Darshana",subjects));
+        students.add(new Student(2,25,"Akshay",subjects));
+        students.add(new Student(3,30,"Subhash",subjects));
+
+
+        // create comparable for student based on name
+        System.out.println(students);
+        System.out.println("Sorted based on name");
+        Collections.sort(students);
+        System.out.println(students);
+
+        System.out.println("sorted based on age");
+        // Create comparator for student to sort based on age
+        Collections.sort(students,(s1,s2)->s1.age-s2.age);
+        System.out.println(students);
+        // sort student lexicographically  with subject highest marks first
+        Collections.sort(students);
+        Collections.sort(subjects,(s1,s2)->s2.marks-s1.marks);
+        System.out.println("sorted based on students alphabetically and marks in descending order");
+        System.out.println(students);
+    }
+}
+class Student implements Comparable<Student>{
+    int id;
+    int age;
+    String name;
+    List<Subject> subjects;
+    Student(int id,int age,String name,List<Subject> subjects){
+        this.id = id;
+        this.age = age;
+        this.name = name;
+        this.subjects = subjects;
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        return name.compareTo(o.name);
+    }
+
+    @Override
+    public String toString() {
+        return "\nStudent{" +
+                "id=" + id +
+                ", age=" + age +
+                ", name='" + name + '\'' +
+                ", subjects=" + subjects +
+                '}';
+    }
+}
+class Subject{
+    int id;
+    String name;
+    int marks;
+    Subject(int id, String name, int marks){
+        this.id = id;
+        this.name = name;
+        this.marks = marks;
+    }
+
+    @Override
+    public String toString() {
+        return "\n \t \t Subject{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", marks=" + marks +
+                '}';
     }
 }
