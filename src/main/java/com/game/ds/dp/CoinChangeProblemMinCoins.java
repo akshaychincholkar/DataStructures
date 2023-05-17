@@ -3,9 +3,9 @@ package com.game.ds.dp;
 public class CoinChangeProblemMinCoins {
     public static void main(String[] args) {
         int[] a = {1,2,3};
-        int sum = 2;
+        int sum = 5;
         int minCoins = getMinCoins(a,sum);
-        System.out.println("Miimum coins required: "+minCoins);
+        System.out.println("Minimum coins required: "+minCoins);
     }
 
     private static int getMinCoins(int[] a, int sum) {
