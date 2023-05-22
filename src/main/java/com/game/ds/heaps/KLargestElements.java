@@ -5,6 +5,7 @@ import java.util.*;
 public class KLargestElements {
     public static void main(String[] args) {
         int[] a={2,1,30,12,21,9,6,24};
+//        int[] a  = {3,1,2};
         int k = 3;
         List list = getKLargestElements(a,k);
         System.out.println(list);
