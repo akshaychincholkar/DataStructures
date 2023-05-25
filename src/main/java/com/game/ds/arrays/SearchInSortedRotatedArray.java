@@ -4,9 +4,11 @@ public class SearchInSortedRotatedArray {
     public static void main(String[] args) {
 //        int[] a = {5, 6, 7, 8, 9, 10, 1, 2, 3};
 //        int[] a = {1,2,3,4,5,6,7,8,9};
-        int[] a = {7,8,9,10,2,3,4};
+//        int[] a = {7,8,9,10,2,3,4};
+//        int[] a = {3,1};
+        int[] a = {5,1,3};
         System.out.println("Index: "+getPivotIndexUsingPointers(a));
-        System.out.println("Binary search: "+searchElement(a,9));
+        System.out.println("Binary search: "+searchElement(a,1));
     }
 
     private static int searchElement(int[] a,int key) {
