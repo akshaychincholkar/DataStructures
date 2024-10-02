@@ -59,7 +59,7 @@ class BinaryLinkedTree{
 public class Client{
     public static void main(String[] a){
 //        BinaryLinkedTree tree = new BinaryLinkedTree(1);
-        System.out.println("Test");
+        System.out.println("PalindromeValidator");
 
     }
 

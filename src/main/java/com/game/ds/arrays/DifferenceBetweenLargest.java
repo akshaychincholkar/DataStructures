@@ -31,4 +31,14 @@ public class DifferenceBetweenLargest {
         }
         return max_difference;
     }
+    private static int getDifference(int[] a) {
+        int max_diff = a[0] - a[1];
+        int max = a[0];
+        for(int i = 1; i<=a.length-1;i++){
+            max_diff = Math.max(Math.abs(max-a[i]),max_diff);
+            max = Math.max(a[i],max);
+        }
+
+        return max_diff;
+    }
 }

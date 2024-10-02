@@ -13,11 +13,11 @@ public class MaxRectInBinaryMatrix {
     public static int getMaxSizeRectangle(int[][] a) {
         int[] building = new int[a[0].length];
         int maxArea = 0;
-        for(int j = 0;j<a.length;j++){
-            for(int i=0;i<a[0].length;i++){
-                System.out.print(a[j][i]+"\t");
-                if(a[j][i] == 0) building[i] = 0;
-                else building[i] += a[j][i];
+        for(int i = 0;i<a.length;i++){
+            for(int j=0;j<a[0].length;j++){
+                System.out.print(a[i][j]+"\t");
+                if(a[i][j] == 0) building[j] = 0;
+                else building[j] += a[i][j];
             }
 //            for(int element: building) System.out.print(element+"\t");
             int area = MaximumAreaInHistogram.getLargestRectagleArea(building);

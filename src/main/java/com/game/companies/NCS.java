@@ -33,7 +33,7 @@ class FilesGenerator implements Runnable{
         boolean[] mailOrNumber = {true,false};
 
         Collections.shuffle(Arrays.asList(filesNumber));
-        System.out.println(Arrays.toString(filesNumber));
+        System.out.println("Arrays.toString(filesNumber)="+Arrays.toString(filesNumber));
         Random random = new Random();
         boolean folderCreation = false;
         for(int i=1,j=0 ; i<=50;i++){

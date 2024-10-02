@@ -4,10 +4,10 @@ import java.util.HashMap;
 
 public class LargestSubarrayOfSumK {
     public static void main(String[] args) {
-        int[] a = {4,1,1,1,2,3,5,1,1,1,1,1};
-//        int[] a = {4,2,1,1,1,3,2,5};
+//        int[] a = {4,1,1,1,2,3,5,1,1,1,1,1};
+        int[] a = {4,2,1,1,1,3,2,5};
         int k = 5;
-        int largest = lenOfLongSubarrGFG(a,a.length,k);
+        int largest = lenOfLongSubarr(a,a.length,k);
 //          int largest = findLargestSubarray(a,k);
 
         System.out.println(largest);
