@@ -4,7 +4,8 @@ public class DifferenceBetweenLargest {
     public static void main(String[] args) {
       int[] a= {3,4,10,21,2};
 //        int[] a = {3, 1};
-        System.out.println(findDifferenceGFG(a));
+//        System.out.println(findDifferenceGFG(a));
+        System.out.println(findDifference(a));
     }
 
     private static int findDifference(int[] a) {
@@ -15,7 +16,7 @@ public class DifferenceBetweenLargest {
                 index = i;
             }
         int difference = 0;
-        for (int i = 0; i <= index; i++) {
+        for (int i = 0; i < a.length; i++) {
             if (difference < largest - a[i]) difference = largest - a[i];
         }
         return difference;
