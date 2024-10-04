@@ -31,3 +31,5 @@ public class LCM {
         }
     }
 }
+
+// FYI: // lcm(a,b)= |ab| / gcd(a,b)
