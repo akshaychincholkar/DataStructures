@@ -1,4 +1,4 @@
-package com.game.faang.arrays;
+package com.game.maang.arrays;
 
 public class MyArray {
     int[] arr;
@@ -32,8 +32,8 @@ public class MyArray {
             System.out.println("[NOT FOUND] Element doesn't exists in array");
             return;
         }
-        for(int i=index;i<size;i++){
-            if(i!=size-1) arr[i] = arr[i+1];
+        for(int i=index;i<size-1;i++){
+             arr[i] = arr[i+1];
         }
         size--;
     }

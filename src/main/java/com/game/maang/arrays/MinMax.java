@@ -1,4 +1,4 @@
-package com.game.faang.arrays;
+package com.game.maang.arrays;
 
 public class MinMax {
     public static int minimum(int[] a){
