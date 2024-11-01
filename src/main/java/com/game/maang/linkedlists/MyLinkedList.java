@@ -3,15 +3,15 @@ package com.game.maang.linkedlists;
 public class MyLinkedList {
 
     class Node{
-        private int data;
-        private Node next;
+        int data;
+        Node next;
         Node(int data){
             this.data = data;
             this.next = null;
         }
     }
 
-    private Node head;
+    public Node head;
     public void add(int data){
         Node node = new Node(data);
 
@@ -70,6 +70,15 @@ public class MyLinkedList {
         }
         System.out.println("[INVALID INPUT] Check index");
         return -1;
+    }
+    public static MyLinkedList createLinkedList(){
+        MyLinkedList linkedList = new MyLinkedList();
+        linkedList.add(5);
+        linkedList.add(4);
+        linkedList.add(1);
+        linkedList.add(3);
+        linkedList.add(2);
+        return linkedList;
     }
 
     public static void main(String[] args) {
