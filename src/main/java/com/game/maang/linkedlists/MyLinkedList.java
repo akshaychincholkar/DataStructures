@@ -80,7 +80,22 @@ public class MyLinkedList {
         linkedList.add(2);
         return linkedList;
     }
-
+    public static MyLinkedList createLoopedLinkedList(){
+        MyLinkedList linkedList = new MyLinkedList();
+        linkedList.add(5);
+        linkedList.add(4);
+        linkedList.add(1);
+        linkedList.add(3);
+        linkedList.add(2);
+        Node ptr = linkedList.head,prev = null;
+        while(ptr.next!=null){
+            prev = ptr;
+            ptr = ptr.next;
+        }
+        ptr.next = prev;
+        System.out.println("Loop created");
+        return linkedList;
+    }
     public static void main(String[] args) {
         MyLinkedList linkedList = new MyLinkedList();
         linkedList.add(5);

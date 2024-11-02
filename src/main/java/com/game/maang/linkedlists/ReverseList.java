@@ -23,7 +23,5 @@ public class ReverseList {
         list.display();
         list = reverse(list);
         list.display();
-
-
     }
 }
