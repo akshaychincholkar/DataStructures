@@ -1,5 +1,7 @@
 package com.game.maang.linkedlists;
 
+import java.lang.ref.Cleaner;
+
 public class MyLinkedList {
 
     class Node{
@@ -96,6 +98,15 @@ public class MyLinkedList {
         System.out.println("Loop created");
         return linkedList;
     }
+    public int length(){
+        Node ptr = head;
+        int length = 0;
+        while(ptr != null){
+            length++;
+            ptr = ptr.next;
+        }
+        return length;
+    }
     public static void main(String[] args) {
         MyLinkedList linkedList = new MyLinkedList();
         linkedList.add(5);
@@ -103,6 +114,7 @@ public class MyLinkedList {
         linkedList.add(1);
         linkedList.add(3);
         linkedList.add(2);
+        System.out.println("Length :"+linkedList.length());
         linkedList.display();
         linkedList.remove(2); //first element check
         linkedList.display();
@@ -111,5 +123,6 @@ public class MyLinkedList {
         System.out.println("3rd index element:"+linkedList.getElementAtIndex(3));
         System.out.println("3rd index element:"+linkedList.getElementAtIndex(4));
         System.out.println("Searching 1: "+(linkedList.search(1)?"Present":"Absent"));
+        System.out.println("Length: "+linkedList.length());
     }
 }
