@@ -52,6 +52,16 @@ public class MyLinkedList {
         }
         System.out.println();
     }
+    public void displayCircularList(){
+        Node ptr = head.next;
+        System.out.println("Printing the circular linked list:");
+        System.out.print("|"+head.data+"| ->");
+        while(ptr != head){
+            System.out.print("|"+ptr.data+"| ->");
+            ptr = ptr.next;
+        }
+        System.out.println();
+    }
     public boolean search(int data){
         Node ptr = head;
         while(ptr != null){
@@ -98,6 +108,21 @@ public class MyLinkedList {
         System.out.println("Loop created");
         return linkedList;
     }
+    public static MyLinkedList createCircularLinkedList(){
+        MyLinkedList linkedList = new MyLinkedList();
+        linkedList.add(5);
+        linkedList.add(4);
+        linkedList.add(1);
+        linkedList.add(3);
+        linkedList.add(2);
+        Node ptr = linkedList.head;
+        while(ptr.next!=null){
+            ptr = ptr.next;
+        }
+        ptr.next = linkedList.head;
+        System.out.println("Loop created");
+        return linkedList;
+    }
     public int length(){
         Node ptr = head;
         int length = 0;
@@ -124,5 +149,7 @@ public class MyLinkedList {
         System.out.println("3rd index element:"+linkedList.getElementAtIndex(4));
         System.out.println("Searching 1: "+(linkedList.search(1)?"Present":"Absent"));
         System.out.println("Length: "+linkedList.length());
+        MyLinkedList circularList = MyLinkedList.createCircularLinkedList();
+        circularList.displayCircularList();
     }
 }
