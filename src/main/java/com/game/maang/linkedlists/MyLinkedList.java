@@ -108,21 +108,7 @@ public class MyLinkedList {
         System.out.println("Loop created");
         return linkedList;
     }
-    public static MyLinkedList createCircularLinkedList(){
-        MyLinkedList linkedList = new MyLinkedList();
-        linkedList.add(5);
-        linkedList.add(4);
-        linkedList.add(1);
-        linkedList.add(3);
-        linkedList.add(2);
-        Node ptr = linkedList.head;
-        while(ptr.next!=null){
-            ptr = ptr.next;
-        }
-        ptr.next = linkedList.head;
-        System.out.println("Loop created");
-        return linkedList;
-    }
+
     public int length(){
         Node ptr = head;
         int length = 0;
@@ -149,7 +135,5 @@ public class MyLinkedList {
         System.out.println("3rd index element:"+linkedList.getElementAtIndex(4));
         System.out.println("Searching 1: "+(linkedList.search(1)?"Present":"Absent"));
         System.out.println("Length: "+linkedList.length());
-        MyLinkedList circularList = MyLinkedList.createCircularLinkedList();
-        circularList.displayCircularList();
     }
 }
