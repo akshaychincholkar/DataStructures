@@ -67,16 +67,29 @@ public class MyCircularLinkedList {
         }
         return length;
     }
-    public int getElementFromIndex(int value){
-        int index = search(value);
+    public int getElementFromIndex(int index){
         if(index == -1 || index >= length() || index < 0) return -1;
         if(index == 0) return head.data;
         Node ptr = head.next;
-        while(ptr!=head){
-            if(index == value) return ptr.data;
-            ptr = ptr.next;
+        for(int i= 1 ; ptr!= head; i++,ptr = ptr.next){
+            if(index == i) return ptr.data;
         }
         return -1;
+    }
+    public boolean delete(int value){
+        int index = search(value);
+        if(index == -1) return false;
+        if(index == 0) head = head.next;
+        Node ptr = head.next, prev = head;
+        while(ptr != head){
+            if(ptr.data == value) {
+                prev.next = ptr.next;
+                return true;
+            }
+            prev = ptr;
+            ptr = ptr.next;
+        }
+        return false;
     }
     public static void main(String[] args) {
         MyCircularLinkedList circularList = MyCircularLinkedList.create();
@@ -85,5 +98,7 @@ public class MyCircularLinkedList {
         System.out.println("Value 15 present: "+(circularList.search(15)!=-1?"Yes":"No"));
         System.out.println("Length :"+circularList.length());
         System.out.println("Third element:"+circularList.getElementFromIndex(3));
+        System.out.println("Deleted 4 from the circular linked list: "+circularList.delete(4));
+        circularList.display();
     }
 }
