@@ -2,6 +2,7 @@ package com.game.maang.arrays;
 
 class Rotate{
     public static void rotate(int[] a,int r){
+        if(a.length<=1) return;
         r =r % a.length ;
         reverse(a,0,a.length-1);
         reverse(a,0,r-1);

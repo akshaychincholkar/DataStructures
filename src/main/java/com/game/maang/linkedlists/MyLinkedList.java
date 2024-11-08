@@ -25,6 +25,7 @@ public class MyLinkedList {
         System.out.println(data+ " added to the linked list");
     }
     public void remove(int data){
+        if(head == null ) return ;
         Node ptr = head;
         Node prev = null;
         while(ptr!=null){
@@ -32,17 +33,14 @@ public class MyLinkedList {
             prev = ptr;
             ptr = ptr.next;
         }
-        if(ptr==null){
-            System.out.println("[NOT FOUND] Data is not available in linked list");
+        if(ptr != null){
+            if(ptr == head){
+                head = head.next;
+                return;
+            }
+            prev.next = ptr.next;
             return;
         }
-        System.out.println("[REMOVED] Data removed: "+data);
-        if(prev == null){
-            head = ptr.next;
-            return;
-        }
-        prev.next = ptr.next != null ? ptr.next : null;
-        ptr.next = null;
     }
     public void display(){
         Node ptr = head;

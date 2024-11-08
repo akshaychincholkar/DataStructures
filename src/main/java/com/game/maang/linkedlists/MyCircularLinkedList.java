@@ -98,7 +98,8 @@ public class MyCircularLinkedList {
         System.out.println("Value 15 present: "+(circularList.search(15)!=-1?"Yes":"No"));
         System.out.println("Length :"+circularList.length());
         System.out.println("Third element:"+circularList.getElementFromIndex(3));
-        System.out.println("Deleted 4 from the circular linked list: "+circularList.delete(4));
+        System.out.println("Delete 4 from the circular linked list: "+(circularList.delete(4)?"Yes":"No"));
+        System.out.println("Delete 14 from the circular linked list: "+(circularList.delete(14)?"Yes":"No"));
         circularList.display();
     }
 }
