@@ -116,6 +116,21 @@ public class MyLinkedList {
         }
         return length;
     }
+    public void reverse(){
+
+        if(head == null || head.next == null){
+            return ;
+        }
+        Node prev=null,ptr= head,next = head.next;
+        while(next!=null){
+            ptr.next = prev;
+            prev = ptr;
+            ptr = next;
+            next = next.next;
+        }
+        ptr.next = prev;
+        head = ptr;
+    }
     public static void main(String[] args) {
         MyLinkedList linkedList = new MyLinkedList();
         linkedList.add(5);
