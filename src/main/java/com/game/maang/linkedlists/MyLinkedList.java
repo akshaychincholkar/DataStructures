@@ -90,6 +90,24 @@ public class MyLinkedList {
         linkedList.add(2);
         return linkedList;
     }
+    public static MyLinkedList createSortedList_1(){
+        MyLinkedList linkedList = new MyLinkedList();
+        linkedList.add(9);
+        linkedList.add(7);
+        linkedList.add(5);
+        linkedList.add(4);
+        linkedList.add(1);
+        return linkedList;
+    }
+    public static MyLinkedList createSortedList_2(){
+        MyLinkedList linkedList = new MyLinkedList();
+        linkedList.add(10);
+        linkedList.add(8);
+        linkedList.add(6);
+        linkedList.add(3);
+        linkedList.add(2);
+        return linkedList;
+    }
     public static MyLinkedList createPalindromeLinkedList(){
         MyLinkedList linkedList = new MyLinkedList();
         linkedList.add(5);
