@@ -30,5 +30,6 @@ public class InfixToPrefix {
         System.out.println("Infix to prefix of a+b*c :"+convert(" a+b*c"));
         System.out.println("Infix to prefix of (A – B/C) * (A/K-L) :"+convert("(A – (B/C)) * ((A/K)-L)"));
         System.out.println("Infix to prefix of (A-B/C)*(A/K-L) :"+convert("(A-B/C)*(A/K-L)"));
+        System.out.println("Infix to prefix of a + b * c :"+convert(" a + b * c"));
     }
 }
