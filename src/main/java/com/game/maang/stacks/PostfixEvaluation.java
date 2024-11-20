@@ -15,7 +15,7 @@ public class PostfixEvaluation{
         return stack.pop();
     }
     public static boolean isOperator(String c){
-        return c == "+" || c == "-" || c == "*" || c == "/";
+        return c.equals("+") || c.equals("-") || c.equals("*") || c.equals("/");
     }
     public static int operate(int a,int b,String c){
         switch(c){
@@ -27,7 +27,7 @@ public class PostfixEvaluation{
         }
     }
     public static void main(String[] args){
-//        System.out.println("postfix evaluation of “2 3 1 * + 9 -“: "+evaluate("2 3 1 * + 9 -"));
+        System.out.println("postfix evaluation of “2 3 1 * + 9 -“: "+evaluate("2 3 1 * + 9 -"));
         System.out.println("postfix evaluation of “100 200 + 2 / 5 * 7 +“: "+evaluate("100 200 + 2 / 5 * 7 +"));
     }
 }
