@@ -1,5 +1,8 @@
 package com.game.maang.queues;
 
+import java.util.HashMap;
+import java.util.Map;
+
 class Node<K,V>{
     K key;
     V value;
@@ -71,26 +74,62 @@ class DoublyLinkedList<K,V>{
         System.out.println();
     }
 }
+class LRUCache<K,V>{
+    Map<K,V> map;
+    DoublyLinkedList<K,V> linkedList;
+    LRUCache(int capacity){
+        map = new HashMap<>(capacity);
+        linkedList = new DoublyLinkedList<>(capacity);
+    }
+    public void get(K key){
+        if(map.containsKey(key)){
+            linkedList.moveToHead(key);
+            System.out.println("["+key+","+map.get(key)+"] marked latest");
+        }else{
+            System.out.println("Page fault");
+        }
+    }
+    public void put(K key,V value){
+        if(map.containsKey(key)){
+            linkedList.moveToHead(key);
+            System.out.println("["+key+","+value+"] already present. Marked latest");
+        }else{
+            map.put(key,value);
+            linkedList.add(key,value);
+            System.out.println("["+key+","+value+"] added to the cache");
+        }
+    }
 
+    public void display(){
+        linkedList.display();
+    }
+}
 public class LRU {
-    // Implement Node for the Doubly LL
-
-
-    // Create LRUCache
-
-    // Use it in main
     public static void main(String[] args) {
-        DoublyLinkedList<Integer, String> doublyLinkedList = new DoublyLinkedList<>(3);
-        doublyLinkedList.add(1,"A");
-        doublyLinkedList.display();
-        doublyLinkedList.add(2,"B");
-        doublyLinkedList.add(3,"C");
-        doublyLinkedList.display();
-        doublyLinkedList.moveToHead(1);
-        doublyLinkedList.display();
-        doublyLinkedList.moveToHead(2);
-        doublyLinkedList.display();
-        doublyLinkedList.moveToHead(3);
-        doublyLinkedList.display();
+//        Testing of the Doubly Linked list created.
+//        DoublyLinkedList<Integer, String> doublyLinkedList = new DoublyLinkedList<>(3);
+//        doublyLinkedList.add(1,"A");
+//        doublyLinkedList.display();
+//        doublyLinkedList.add(2,"B");
+//        doublyLinkedList.add(3,"C");
+//        doublyLinkedList.display();
+//        doublyLinkedList.moveToHead(1);
+//        doublyLinkedList.display();
+//        doublyLinkedList.moveToHead(2);
+//        doublyLinkedList.display();
+//        doublyLinkedList.moveToHead(3);
+//        doublyLinkedList.display();
+
+//        LRU Cache testing
+        LRUCache<Integer,String> lru = new LRUCache<>(3);
+        lru.put(1,"Akshay");
+        lru.put(2,"Bittu");
+        lru.display();
+        lru.put(1,"Akshay");
+        lru.display();
+        lru.put(3,"Pranay");
+        lru.display();
+        lru.get(2);
+        lru.display();
     }
 }
