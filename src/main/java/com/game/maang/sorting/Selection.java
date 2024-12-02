@@ -3,10 +3,10 @@ package com.game.maang.sorting;
 public class Selection {
     public static void sort(int[] a){
         for(int i=0;i<a.length-1;i++){
-            int smallest = a[i];
+            int smallest = i;
             int j = i+1;
             for(;j<a.length;j++){
-                if(smallest>a[j])smallest = j;
+                if(a[smallest]>a[j])smallest = j;
             }
             int temp = a[i];
             a[i] = a[smallest];
