@@ -4,11 +4,14 @@ public class Merge {
     public static void sort(int[] a){
 
     }
-    public static void merge(int[] a,int i,int j){
-        int n = a.length;
+    public static void merge(int[] arr,int i,int j){
+        int n = arr.length;
         int n1 = n - i -1;
         int n2 = j-i;
 
+        int[] a = new int[n1];
+        int[] b = new int[n2];
+        int[] c = new int[n];
 
     }
     public static void display(int[] a){
