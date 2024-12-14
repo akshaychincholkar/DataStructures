@@ -1,12 +1,12 @@
 package com.game.maang.queues;
 
-public class MyQueue {
+public class CustomCircularQueue {
     int[] queue;
     int capacity;
     int front;
     int rear;
     int size;
-    public MyQueue(int capacity){
+    public CustomCircularQueue(int capacity){
         this.capacity = capacity;
         queue = new int[capacity];
         size = front = rear = 0;
@@ -41,7 +41,7 @@ public class MyQueue {
     }
 
     public static void main(String[] args) {
-        MyQueue queue = new MyQueue(8);
+        CustomCircularQueue queue = new CustomCircularQueue(8);
         queue.display();
         queue.add(3);
         queue.add(4);
