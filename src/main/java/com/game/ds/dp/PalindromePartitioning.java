@@ -8,7 +8,7 @@ public class PalindromePartitioning {
 //        String s = "nitin";
         String s = "geeksforgeeks";
 //        System.out.println(isPalindrome(s,0, s.length()));
-        System.out.println("Recursion:"+getMinPalindromicPartitions(s,0,s.length()-1));
+        System.out.println("Factorial:"+getMinPalindromicPartitions(s,0,s.length()-1));
         System.out.println("Memoization: "+getMinPalindromicPartitionsMemoization(s,0,s.length()-1));
         System.out.println("Topdown: "+getMinPalindromicPartitionsTopdown(s,0,s.length()-1));
     }
