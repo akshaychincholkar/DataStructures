@@ -98,7 +98,8 @@ public class BinaryTree{
         System.out.print(cur.data+"\t");
         inorder(cur.right);
     }
-    public static void main(String[] args){
+    public static BinaryTree createTree(){
+
         BinaryTree tree = new BinaryTree();
         tree.insert(10);
         tree.insert(20);
@@ -106,10 +107,46 @@ public class BinaryTree{
         tree.insert(40);
         tree.insert(50);
         tree.insert(60);
+        return tree;
+    }
+    public BinaryTree createIncompleteBT(){
+        BinaryTree tree = new BinaryTree();
+        Node node10 = new Node(10);
+        tree.root = node10;
 
+        Node node20 = new Node(20);
+        node10.left = node20;
+        Node node30 = new Node(30);
+        node20.left = node30;
+        Node node40 = new Node(40);
+        node20.right = node40;
+        Node node50 = new Node(50);
+        node10.right = node50;
+        Node node60 = new Node(60);
+        node50.left = node60;
+        Node node70 = new Node(70);
+        node60.right = node70;
+        return tree;
+    }
+    public int height(Node cur){
+        if(cur == null) return -1;
+        int lHeight = height(cur.left);
+        int rHeight = height(cur.right);
+        return Math.max(lHeight,rHeight)+1;
+    }
+    public static void main(String[] args){
+
+        BinaryTree tree = BinaryTree.createTree();
         tree.inorder(tree.root);
         tree.delete(20);
         System.out.println();
         tree.inorder(tree.root);
+
+        BinaryTree tree2 = new BinaryTree();
+        BinaryTree incompleteBT = tree2.createIncompleteBT();
+        System.out.println();
+        incompleteBT.inorder(incompleteBT.root);
+
+        System.out.println("height of incomplete BT: "+incompleteBT.height(incompleteBT.root));
     }
 }
