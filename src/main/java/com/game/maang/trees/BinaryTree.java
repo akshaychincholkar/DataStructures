@@ -1,5 +1,7 @@
 package com.game.maang.trees;
 
+import com.game.ds.queue.KQueuesInArray;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -98,6 +100,30 @@ public class BinaryTree{
         System.out.print(cur.data+"\t");
         inorder(cur.right);
     }
+    public void preorder(Node cur){
+        if(cur == null) return;
+        System.out.print(cur.data+"\t");
+        preorder(cur.left);
+        preorder(cur.right);
+    }
+    public void postorder(Node cur){
+        if(cur == null) return;
+        postorder(cur.left);
+        postorder(cur.right);
+        System.out.print(cur.data+"\t");
+    }
+    public void levelOrder(Node root){
+        if(root == null) return;
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        System.out.println();
+        while(!queue.isEmpty()){
+            Node cur = queue.poll();
+            System.out.print(cur.data+"\t");
+            if(cur.left!=null)queue.add(cur.left);
+            if(cur.right!=null)queue.add(cur.right);
+        }
+    }
     public static BinaryTree createTree(){
 
         BinaryTree tree = new BinaryTree();
@@ -128,6 +154,17 @@ public class BinaryTree{
         node60.right = node70;
         return tree;
     }
+    public int countNodes(Node root){
+        if(root == null) return 0;
+        int leftNodes = countNodes(root.left);
+        int rightNodes = countNodes(root.right);
+        return leftNodes+rightNodes+1;
+    }
+    public int countLeafNodes(Node root){
+        if(root == null ) return 0;
+        if(root.left == null && root.right == null) return 1;
+        return countLeafNodes(root.left)+countLeafNodes(root.right);
+    }
     public int height(Node cur){
         if(cur == null) return -1;
         int lHeight = height(cur.left);
@@ -147,6 +184,19 @@ public class BinaryTree{
         System.out.println();
         incompleteBT.inorder(incompleteBT.root);
 
-        System.out.println("height of incomplete BT: "+incompleteBT.height(incompleteBT.root));
+        System.out.println("\nheight of incomplete BT: "+incompleteBT.height(incompleteBT.root));
+        System.out.println(("Total nodes in complete BT :"+tree.countNodes(tree.root)));
+        System.out.println(("Total nodes in BT :"+incompleteBT.countNodes(incompleteBT.root)));
+        System.out.println(("Total leaf nodes in complete BT :"+tree.countLeafNodes(tree.root)));
+        System.out.println(("Total leaf nodes in BT :"+incompleteBT.countLeafNodes(incompleteBT.root)));
+
+        System.out.println("Preorder traversal of complete BT:");
+        tree.preorder(tree.root);
+
+        System.out.println("Postorder traversal of complete BT:");
+        tree.postorder(tree.root);
+
+        System.out.println("BFS/level order traversal of the tree :");
+        tree.levelOrder(tree.root);
     }
 }
