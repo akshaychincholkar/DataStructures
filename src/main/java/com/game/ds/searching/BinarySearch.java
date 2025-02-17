@@ -6,7 +6,7 @@ public class BinarySearch {
         System.out.println("Found:"+binarySearch(a,2));
     }
 
-    private static boolean binarySearch(int[] a,int number) {
+    public static boolean binarySearch(int[] a,int number) {
         int l =0 , r = a.length-1, mid = (l+r)/2;
         for(int i = 0; i < a.length;i ++){
             if(a[mid]==number)return true;
